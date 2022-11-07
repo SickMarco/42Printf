@@ -6,12 +6,13 @@
 #    By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/05 15:51:15 by mbozzi            #+#    #+#              #
-#    Updated: 2022/11/06 19:29:28 by mbozzi           ###   ########.fr        #
+#    Updated: 2022/11/07 19:08:04 by mbozzi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS			=	ft_printf.c ft_strlen.c ft_putchar.c ft_putstrn.c ft_putnbrn.c \
-					ft_itoa.c
+					ft_itoa.c ft_unsign.c ft_putnbr_base.c ft_hexa.c
+		
 OBJS			= $(SRCS:.c=.o)
 
 BONUS			=	

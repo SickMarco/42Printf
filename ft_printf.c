@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/05 15:57:52 by mbozzi            #+#    #+#             */
-/*   Updated: 2022/11/06 23:49:17 by mbozzi           ###   ########.fr       */
+/*   Created: 2022/11/04 12:01:20 by mbozzi            #+#    #+#             */
+/*   Updated: 2022/11/07 18:30:42 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ int	ft_print_conv(va_list args, const char ktm)
 
 	lenght = 0;
 	if (ktm == 'c')
-	{
-		 ft_putchar(va_arg(args, int));
-		lenght++;
-	}
+		lenght += ft_putchar(va_arg(args, int));
 	else if (ktm == 's')
 		lenght += ft_putstrn(va_arg(args, char *));
 	/*else if (ktm == 'p')
@@ -30,6 +27,12 @@ int	ft_print_conv(va_list args, const char ktm)
 		lenght += ft_putnbrn(va_arg(args, int));
 	else if (ktm == 'i')
 		lenght += ft_putnbrn(va_arg(args, int));
+	else if (ktm == 'u')
+		lenght += ft_unsign(va_arg(args, int));
+	else if (ktm == 'x')
+		lenght += ft_hexa(va_arg(args, int), ktm);
+	else if (ktm == 'X')
+		lenght += ft_hexa(va_arg(args, int), ktm);
 	return (lenght);
 }
 
@@ -44,28 +47,18 @@ int	ft_printf(const char *ktm, ...)
 	lenght = 0;
 	while (ktm[i])
 	{
-		if (ktm[i] == '%')
+		if (ktm[i] == '%' && ktm[i + 1] == '%')
 		{
-			lenght += ft_print_conv(args, ktm[i + 1]);
+			write(1, "%", 1);
 			i++;
-		}
-		else
-		{
-			ft_putchar(ktm[i]);
 			lenght++;
 		}
+		else if (ktm[i] == '%')
+			lenght += ft_print_conv(args, ktm[i++ + 1]);
+		else
+			lenght += ft_putchar(ktm[i]);
 		i++;
-
 	}
 	va_end(args);
 	return (lenght);
-}
-
-#include <stdio.h> 
-
-int main()
-{
-	ft_printf("prova split %d\n", -12345);
-	printf ("prova split %d\n", -12345);
-	printf("%d\n", ft_printf("prova split %d\n", -12345));
 }
