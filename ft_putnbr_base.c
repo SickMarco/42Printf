@@ -6,37 +6,31 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:30:21 by mbozzi            #+#    #+#             */
-/*   Updated: 2022/11/07 19:39:30 by mbozzi           ###   ########.fr       */
+/*   Updated: 2022/11/08 14:20:49 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr_base(long int nbr, char *base)
+int	ft_putnbr_base(unsigned long int nbr, char *base)
 {
-	int			i;
-	long int	conv[12];
-	long int	nb;
-	int			ret;
+	int				i;
+	int				conv[255];
+	int				ret;
 
 	i = 0;
-	nb = nbr;
 	ret = 0;
-	if (nb < 0)
+	while (nbr >= 16)
 	{
-		nb = -nb;
-		write(1, "-", 1);
-		ret++;
-	}
-	while (nb != 0)
-	{
-		conv[i] = nb % 16;
-		nb /= 16;
+		conv[i] = base[nbr % 16];
+		nbr = nbr / 16;
 		i++;
 	}
-	while (i-- > 0)
+	conv[i] = base[nbr];
+	while (i >= 0)
 	{
-		write(1, &base[conv[i]], 1);
+		write(1, &conv[i], 1);
+		i--;
 		ret++;
 	}
 	return(ret);

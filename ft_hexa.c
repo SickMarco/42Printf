@@ -6,17 +6,22 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:27:02 by mbozzi            #+#    #+#             */
-/*   Updated: 2022/11/07 19:12:03 by mbozzi           ###   ########.fr       */
+/*   Updated: 2022/11/07 21:56:22 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_hexa(long int num, const char ktm)
+int	ft_hexa(long long int num, const char ktm)
 {
 	int len;
 
 	len = 0;
+	if (num == 0)
+	{
+		write (1, "0", 1);
+		return (1);
+	}
 	if (ktm == 'x')
 		len += ft_putnbr_base(num, "0123456789abcdef");
 	else if (ktm == 'X')

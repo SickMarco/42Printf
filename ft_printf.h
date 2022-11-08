@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 18:24:24 by mbozzi            #+#    #+#             */
-/*   Updated: 2022/11/07 19:12:10 by mbozzi           ###   ########.fr       */
+/*   Updated: 2022/11/08 14:21:02 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		ft_putstrn(char *str);
 int		ft_putnbrn (int num);
 char	*ft_itoa(long int n);
 int		ft_unsign(int num);
-int		ft_hexa(long int num, const char ktm);
-int		ft_putnbr_base(long int nbr, char *base);
+int		ft_hexa(long long int num, const char ktm);
+int		ft_putnbr_base(unsigned long int nbr, char *base);
 
 #endif

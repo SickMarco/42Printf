@@ -6,56 +6,56 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 23:17:33 by mbozzi            #+#    #+#             */
-/*   Updated: 2022/11/07 16:22:42 by mbozzi           ###   ########.fr       */
+/*   Updated: 2022/11/08 14:18:55 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-unsigned int	ft_number_size_unsigned(unsigned int number)
+unsigned int	ft_number_size_unsigned(unsigned int num)
 {
-	unsigned int	length;
+	unsigned int	len;
 	
-	length = 0;
-	if (number == 0)
+	len = 0;
+	if (num == 0)
 		return (1);
-	while (number != 0)
+	while (num != 0)
 	{
-		number /= 10;
-		length++;
+		num /= 10;
+		len++;
 	}
-	return (length);
+	return (len);
 }
 
 char	*ft_itoa_unsigned(unsigned int n)
 {
-	char		*str;
+	char			*str;
 	unsigned int	num;
-	unsigned int	length;
+	unsigned int	len;
 
-	length = ft_number_size_unsigned(n);
+	len = ft_number_size_unsigned(n);
 	num = n;
-	str = (char *)malloc(sizeof(char) * (length + 1));
+	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
 	if (num == 0)
 		str[0] = '0';
-	str[length] = '\0';
+	str[len] = '\0';
 	while (num != 0)
 	{
-		str[length - 1] = (num % 10) + '0';
+		str[len - 1] = (num % 10) + '0';
 		num = num / 10;
-		length--;
+		len--;
 	}
 	return (str);
 }
 
 int	ft_unsign(int num)
 {
-	char	*str;
-	int		i;
-	int 	len;
-	unsigned int n;
+	char			*str;
+	int				i;
+	int 			len;
+	unsigned int 	n;
 	
 	len = 0;
 	i = 0;

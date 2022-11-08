@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 12:01:20 by mbozzi            #+#    #+#             */
-/*   Updated: 2022/11/07 18:30:42 by mbozzi           ###   ########.fr       */
+/*   Updated: 2022/11/08 14:21:22 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	ft_print_conv(va_list args, const char ktm)
 	else if (ktm == 'u')
 		lenght += ft_unsign(va_arg(args, int));
 	else if (ktm == 'x')
-		lenght += ft_hexa(va_arg(args, int), ktm);
+		lenght += ft_hexa(va_arg(args, unsigned long int), ktm);
 	else if (ktm == 'X')
-		lenght += ft_hexa(va_arg(args, int), ktm);
+		lenght += ft_hexa(va_arg(args, unsigned long int), ktm);
 	return (lenght);
 }
 
