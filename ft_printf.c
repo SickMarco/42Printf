@@ -6,7 +6,7 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 12:01:20 by mbozzi            #+#    #+#             */
-/*   Updated: 2022/11/08 14:21:22 by mbozzi           ###   ########.fr       */
+/*   Updated: 2022/11/08 15:19:02 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 int	ft_print_conv(va_list args, const char ktm)
 {
-	int lenght;
+	int	lenght;
 
 	lenght = 0;
 	if (ktm == 'c')
 		lenght += ft_putchar(va_arg(args, int));
 	else if (ktm == 's')
 		lenght += ft_putstrn(va_arg(args, char *));
-	/*else if (ktm == 'p')
-		lenght += ft_putptrn(va_arg(args, void *));*/
+	else if (ktm == 'p')
+		lenght += ft_putptrn(va_arg(args, uintptr_t));
 	else if (ktm == 'd')
 		lenght += ft_putnbrn(va_arg(args, int));
 	else if (ktm == 'i')
@@ -30,19 +30,19 @@ int	ft_print_conv(va_list args, const char ktm)
 	else if (ktm == 'u')
 		lenght += ft_unsign(va_arg(args, int));
 	else if (ktm == 'x')
-		lenght += ft_hexa(va_arg(args, unsigned long int), ktm);
+		lenght += ft_hexa(va_arg(args, unsigned int), ktm);
 	else if (ktm == 'X')
-		lenght += ft_hexa(va_arg(args, unsigned long int), ktm);
+		lenght += ft_hexa(va_arg(args, unsigned int), ktm);
 	return (lenght);
 }
 
 int	ft_printf(const char *ktm, ...)
 {
-	int	i;
-	int	lenght;
-	va_list args;
-	va_start(args, ktm);
+	int		i;
+	int		lenght;
+	va_list	args;
 
+	va_start(args, ktm);
 	i = 0;
 	lenght = 0;
 	while (ktm[i])

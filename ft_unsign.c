@@ -15,7 +15,7 @@
 unsigned int	ft_number_size_unsigned(unsigned int num)
 {
 	unsigned int	len;
-	
+
 	len = 0;
 	if (num == 0)
 		return (1);
@@ -54,9 +54,9 @@ int	ft_unsign(int num)
 {
 	char			*str;
 	int				i;
-	int 			len;
-	unsigned int 	n;
-	
+	int				len;
+	unsigned int	n;
+
 	len = 0;
 	i = 0;
 	n = (unsigned int)num;

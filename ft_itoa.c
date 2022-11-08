@@ -15,7 +15,7 @@
 int	ft_number_size(long int num)
 {
 	int	len;
-	
+
 	len = 0;
 	if (num == 0)
 		return (1);

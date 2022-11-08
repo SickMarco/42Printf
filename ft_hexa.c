@@ -6,15 +6,15 @@
 /*   By: mbozzi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:27:02 by mbozzi            #+#    #+#             */
-/*   Updated: 2022/11/07 21:56:22 by mbozzi           ###   ########.fr       */
+/*   Updated: 2022/11/08 14:52:44 by mbozzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_hexa(long long int num, const char ktm)
+int	ft_hexa(unsigned int num, const char ktm)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (num == 0)
